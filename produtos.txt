@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Camiseta",
+        "price": 15.0,
+        "description": "Camiseta de algodão com estampa de gato",
+        "image": "https://fotos.com/gato.jpg",
+        "author": "enzohubner"
+    },
+    {
+        "name": "Caneca",
+        "price": 10.0,
+        "description": "Caneca de cerâmica com estampa de coruja",
+        "image": "https://fotos.com/coruja.jpg",
+        "author": "daianeggg"
+    },
+    {
+        "name": "Livro",
+        "price": 30.0,
+        "description": "Livro de ficção científica",
+        "image": "https://fotos.com/livro.jpg",
+        "author": "viniciusxv27"
+    }
+]

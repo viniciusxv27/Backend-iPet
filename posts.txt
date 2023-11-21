@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Camiseta",
+        "description": "Camiseta de algodão com estampa de gato",
+        "image": "https://fotos.com/gato.jpg",
+        "likes": 2,
+        "comments": [],
+        "author": "enzohubner"
+    },
+    {
+        "title": "Camiseta",
+        "description": "Camiseta de algodão com estampa de gato",
+        "image": "https://fotos.com/gato.jpg",
+        "likes": 2,
+        "comments": [],
+        "author": "enzohubner"
+    },
+    {
+        "title": "Camiseta",
+        "description": "Camiseta de algodão com estampa de gato",
+        "image": "https://fotos.com/gato.jpg",
+        "likes": 2,
+        "comments": [],
+        "author": "enzohubner"
+    }
+]

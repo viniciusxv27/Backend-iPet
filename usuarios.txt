@@ -1,0 +1,38 @@
+[
+    {
+        "image": "https://image.com",
+        "name": "viniciusxv27",
+        "phone": "14026442721",
+        "date_of_birth": "01/06/2006",
+        "cellphone": "27995088267",
+        "email": "vinicius8cm@gmail.com",
+        "password": "vini4000",
+        "friends": [],
+        "products": [],
+        "posts": []
+    },
+    {
+        "image": "https://image.com",
+        "name": "daianeggg",
+        "phone": "19437548706",
+        "date_of_birth": "04/05/2005",
+        "cellphone": "27999015965",
+        "email": "daianegeraldino@gmail.com",
+        "password": "1Abacate+",
+        "friends": [],
+        "products": [],
+        "posts": []
+    },
+    {
+        "image": "https://image.com",
+        "name": "enzohubner",
+        "phone": "01234567800",
+        "date_of_birth": "01/01/2006",
+        "cellphone": "27997002951",
+        "email": "enzosla123@gmail.com",
+        "password": "mulher123",
+        "friends": [],
+        "products": [],
+        "posts": []
+    }
+]
