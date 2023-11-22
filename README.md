@@ -29,13 +29,18 @@ python -m flask run
 O projeto está pronto para ser testado em servidor local 
 ```
 
-```
+
 ## ENDPOINTS
 
+```
 api/usuarios/ - Retorna todos os usuarios do app
+```
 
+```
 api/produtos/ - Retorna todos os produtos do marketplace do app
+```
 
+```
 api/posts/ - Retorna todos os posts do app
 ```
 
