@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask_cors import CORS
 import json
 
 app = Flask(__name__)
+CORS(app)
 
 users = []
 products = []
@@ -18,14 +20,16 @@ def load_users():
             return json.load(file)
     except FileNotFoundError:
         return []
-    
+
+
 def load_products():
     try:
         with open(products_file, 'r') as file:
             return json.load(file)
     except FileNotFoundError:
         return []
-    
+
+
 def load_posts():
     try:
         with open(posts_file, 'r') as file:
@@ -33,32 +37,56 @@ def load_posts():
     except FileNotFoundError:
         return []
 
-def save_users():
+
+def save_users(users_data):
     with open(users_file, 'w') as file:
-        json.dump(users, file)
+        json.dump(users_data, file)
 
-def save_products():
-    with open(products_file, 'w') as file:
-        json.dump(products, file)
-
-def save_posts():
-    with open(posts_file, 'w') as file:
-        json.dump(posts, file)
 
 @app.route('/api/users')
 def users_json():
-    users = load_users()
-    return jsonify(users)
+    loaded_users = load_users()
+    return jsonify(loaded_users)
+
 
 @app.route('/api/products')
 def products_json():
-    products = load_products()
-    return jsonify(products)
+    try:
+        loaded_products = load_products()
+        return jsonify(loaded_products)
+    except Exception as e:
+        print("Error:", str(e))
+        return jsonify({"error": "Internal Server Error"}), 500
+
 
 @app.route('/api/posts')
 def posts_json():
-    posts = load_posts()
-    return jsonify(posts)
+    loaded_posts = load_posts()
+    return jsonify(loaded_posts)
+
+
+@app.route('/api/register', methods=['POST'])
+def register():
+    try:
+        new_user_data = request.get_json()
+        users_data = load_users()
+        users_data.append(new_user_data)
+        save_users(users_data)
+        return jsonify({"message": "User registered successfully"})
+    except Exception as e:
+        print("Error:", str(e))
+        return jsonify({"error": "Internal Server Error"}), 500
+
+
+@app.route('/api/recover-password', methods=['POST'])
+def recover_password():
+    try:
+        user_email = request.json.get('email')
+        return jsonify({"message": "Password recovery initiated. Check your email for instructions."})
+    except Exception as e:
+        print("Error:", str(e))
+        return jsonify({"error": "Internal Server Error"}), 500
+
 
 if __name__ == '__main__':
     app.run()
