@@ -72,7 +72,7 @@ def register():
         users_data = load_users()
         users_data.append(new_user_data)
         save_users(users_data)
-        return jsonify({"message": "User registered successfully"})
+        return jsonify({"message": "User registered successfully"}), 200
     except Exception as e:
         print("Error:", str(e))
         return jsonify({"error": "Internal Server Error"}), 500
@@ -82,11 +82,28 @@ def register():
 def recover_password():
     try:
         user_email = request.json.get('email')
-        return jsonify({"message": "Password recovery initiated. Check your email for instructions."})
+        return jsonify({"message": "Password recovery initiated. Check your email for instructions."}), 200
     except Exception as e:
         print("Error:", str(e))
         return jsonify({"error": "Internal Server Error"}), 500
 
+@app.route('/api/login', methods=['POST'])
+def login():
+    try:
+        login_data = request.get_json()
+        email = login_data.get('email')
+        password = login_data.get('password')
 
+        users_data = load_users()
+
+        for user in users_data:
+            if user.get('email') == email and user.get('password') == password:
+                return jsonify({"message": "Login successful"}), 200
+        
+        return jsonify({"error": "Invalid email or password"}), 401
+    except Exception as e:
+        print("Error:", str(e))
+        return jsonify({"error": "Internal Server Error"}), 500
+        
 if __name__ == '__main__':
     app.run()
